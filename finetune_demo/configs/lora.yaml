@@ -8,22 +8,22 @@ max_output_length: 256
 training_args:
   # see `transformers.Seq2SeqTrainingArguments`
   output_dir: ./output
-  max_steps: 30000
+  max_steps: 50000
   # settings for data loading
   per_device_train_batch_size: 4
   dataloader_num_workers: 24
   remove_unused_columns: false
   # settings for saving checkpoints
   save_strategy: steps
-  save_steps: 500
+  save_steps: 5000
   # settings for logging
   log_level: info
   logging_strategy: steps
-  logging_steps: 10
+  logging_steps: 500
   # settings for evaluation
   per_device_eval_batch_size: 16
   evaluation_strategy: steps
-  eval_steps: 500
+  eval_steps: 5000
   # settings for optimizer
   # adam_epsilon: 1e-6
   # uncomment the following line to detect nan or inf values
@@ -39,6 +39,6 @@ training_args:
 peft_config:
   peft_type: LORA
   task_type: CAUSAL_LM
-  r: 8
-  lora_alpha: 32
+  r: 16
+  lora_alpha: 64
   lora_dropout: 0.1
